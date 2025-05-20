@@ -17,7 +17,7 @@ def get_curr_time(format: str = "%Y-%m-%d %H:%M:%S") -> dict:
   
 root_agent = Agent(
     name = "tools_agent",
-    model = "",
+    model = "gemini-2.0-flash",
     description = "Tool Agent",
     instruction = """
                     You are a helpful assistant that uses the following tools:

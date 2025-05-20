@@ -6,7 +6,7 @@ load_dotenv()
 
 root_agent = Agent(
     name = "greeting_agent",
-    model = "",
+    model = "gemini-2.0-flash",
     description = "Greeting Agent",
     instruction = """
                     You are a helpful assistant that greets the user first,
