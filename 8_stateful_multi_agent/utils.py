@@ -1,6 +1,9 @@
 from datetime import datetime
+
 from google.genai import types
 
+
+# ANSI color codes for terminal output
 class Colors:
     RESET = "\033[0m"
     BOLD = "\033[1m"
@@ -25,6 +28,7 @@ class Colors:
     BG_MAGENTA = "\033[45m"
     BG_CYAN = "\033[46m"
     BG_WHITE = "\033[47m"
+
 
 def update_interaction_history(session_service, app_name, user_id, session_id, entry):
     """Add an entry to the interaction history in state.
@@ -67,10 +71,8 @@ def update_interaction_history(session_service, app_name, user_id, session_id, e
         )
     except Exception as e:
         print(f"Error updating interaction history: {e}")
-        
-        
-        
-        
+
+
 def add_user_query_to_history(session_service, app_name, user_id, session_id, query):
     """Add a user query to the interaction history."""
     update_interaction_history(
@@ -83,10 +85,11 @@ def add_user_query_to_history(session_service, app_name, user_id, session_id, qu
             "query": query,
         },
     )
-    
-    
+
+
 def add_agent_response_to_history(
-    session_service, app_name, user_id, session_id, agent_name, response):
+    session_service, app_name, user_id, session_id, agent_name, response
+):
     """Add an agent response to the interaction history."""
     update_interaction_history(
         session_service,
@@ -180,7 +183,7 @@ def display_state(
         print("-" * (22 + len(label)))
     except Exception as e:
         print(f"Error displaying state: {e}")
-        
+
 
 async def process_agent_response(event):
     """Process and display agent response events."""
@@ -217,7 +220,6 @@ async def process_agent_response(event):
             )
 
     return final_response
-
 
 
 async def call_agent_async(runner, user_id, session_id, query):
@@ -274,5 +276,3 @@ async def call_agent_async(runner, user_id, session_id, query):
 
     print(f"{Colors.YELLOW}{'-' * 30}{Colors.RESET}")
     return final_response_text
-
-
