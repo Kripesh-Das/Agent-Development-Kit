@@ -1,3 +1,3 @@
-"""Subagents for the lead qualification pipeline."""
+"""Recommender agent for lead qualification."""
 
-from . import recommender, scorer, validator
+from .agent import action_recommender_agent
